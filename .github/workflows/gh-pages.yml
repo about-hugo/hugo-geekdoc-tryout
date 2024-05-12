@@ -33,7 +33,7 @@ jobs:
         run: |
           mkdir -p themes/hugo-geekdoc/
           curl -L https://github.com/thegeeklab/hugo-geekdoc/releases/latest/download/hugo-geekdoc.tar.gz | tar -xz -C themes/hugo-geekdoc/ --strip-components=1
-          hugo -b https://about-hugo.github.io/hugo-geekdoc-tryout
+          hugo -b 'https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}'
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
