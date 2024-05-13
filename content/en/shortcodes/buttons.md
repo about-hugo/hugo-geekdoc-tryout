@@ -2,7 +2,12 @@
 title: Buttons
 ---
 
+
+
 Buttons are styled links that can lead to local page or external link.
+
+## Monday, 13.May 2024 11:15
+--- github web editing was here ;-) ---
 
 ## Usage
 
