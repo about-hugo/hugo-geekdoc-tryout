@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
+          submodules: false  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
       
       - name: Install Ruby Dev                     
@@ -29,13 +29,10 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-#      - name: Download Theme
-#        run: |
-#          mkdir -p themes/hugo-geekdoc/
-#          curl -L https://github.com/thegeeklab/hugo-geekdoc/releases/latest/download/hugo-geekdoc.tar.gz | tar -xz -C themes/hugo-geekdoc/ --strip-components=1
-   
       - name: Build
         run: |
+          mkdir -p themes/hugo-geekdoc/
+          curl -L https://github.com/thegeeklab/hugo-geekdoc/releases/latest/download/hugo-geekdoc.tar.gz | tar -xz -C themes/hugo-geekdoc/ --strip-components=1
           hugo -b 'https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}'
 
       - name: Deploy
